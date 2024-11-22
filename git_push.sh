@@ -31,7 +31,7 @@ git config --global init.defaultBranch main
 # Initialize git if not already initialized
 if [ ! -d ".git" ]; then
     echo "Initializing git repository..."
-    echo $SUDO_PASSWORD | sudo -S git init || handle_error "Failed to initialize git"
+    git init || handle_error "Failed to initialize git"
     
     # Configure the credential helper to store the token
     git config credential.helper store
