@@ -97,6 +97,9 @@ fi
 
 # Push to the main branch using token authentication
 echo "Pushing changes..."
-echo $SUDO_PASSWORD | sudo -S git push -u origin main || handle_error "Failed to push changes"
+if ! git push -u origin main --force; then
+    echo "Error: Failed to push changes"
+    exit 1
+fi
 
 echo "Changes have been committed and pushed successfully!"
